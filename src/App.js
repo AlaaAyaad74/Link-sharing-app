@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import Header from "./components/Header/Header";
 import HomePage from "./components/HomePage";
 import Profile from "./pages/Profile";
@@ -17,8 +17,14 @@ const data = {
 };
 
 function App() {
+  const [state, setState] = useState(data);
+  function changeData(name, value) {
+    const cloned = { ...data };
+    cloned[name] = value;
+    setState(cloned);
+  }
   return (
-    <sharedData.Provider value={data}>
+    <sharedData.Provider value={(data, changeData, state)}>
       <Router>
         <Header />
         <Routes>

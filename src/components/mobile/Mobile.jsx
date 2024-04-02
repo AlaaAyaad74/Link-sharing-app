@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Mobilestyle.module.css";
 import { Link } from "react-router-dom";
 import Buttonlink from "./buttonLink/Buttonlink";
@@ -35,13 +35,13 @@ function Mobile() {
     },
   ];
   const dataRecived = useContext(sharedData);
-
+  console.log(sharedData);
   return (
     <div className={styles.mob__Cont}>
       <div className={styles.cont + " " + "Flex"}>
         <div className={styles.ava__text + " " + "Flex"}>
           <img src="/01.png" alt="" className={styles.avatar} />
-          <h2>{dataRecived.firstName}</h2>
+          <h2>{dataRecived.state}</h2>
           <p>FrontEnd developer</p>
         </div>
         <div className={styles.socisl_links_cont + " " + "Flex"}>
