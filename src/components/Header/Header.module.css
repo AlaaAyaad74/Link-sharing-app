@@ -1,0 +1,48 @@
+.container {
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  height: 70px;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+.links {
+  gap: 2rem;
+}
+.links a {
+  display: flex;
+  align-items: center;
+}
+a span {
+  margin-inline-start: 6px;
+}
+.preview {
+  color: var(--btn-color);
+  border: 1px solid var(--btn-color);
+  padding: 0.5em 1em;
+}
+.links a:hover {
+  color: var(--btn-color);
+  background-color: #e5e5e5;
+  transition: 1s ease;
+}
+.links a:hover svg {
+  fill: var(--btn-color);
+}
+.preview svg {
+  display: none;
+}
+@media (max-width: 650px) {
+  .links {
+    gap: 0;
+  }
+}
+@media (max-width: 620px) {
+  h1,
+  a span {
+    display: none;
+  }
+  .preview svg {
+    display: block;
+  }
+}

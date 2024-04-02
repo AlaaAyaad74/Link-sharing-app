@@ -1,0 +1,33 @@
+.container {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 45px;
+  height: 800px;
+}
+/* .contCards {
+  border-bottom: 2px solid var(--secondary-color);
+} */
+.save__btn {
+  color: var(--primary-color);
+  background-color: var(--btn-color);
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  padding: 0.8em 1.6em;
+  border-radius: 6px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  cursor: pointer;
+}
+.save__btn:hover {
+  opacity: 0.8;
+}
+@media (max-width: 520px) {
+  .container {
+    padding: 45px 20px;
+  }
+}

@@ -1,0 +1,25 @@
+.container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.container p {
+  color: var(--secondary-color);
+  color: gray;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+h2,
+p {
+  margin-bottom: 20px;
+}
+.addLink {
+  width: 100%;
+  height: 40px;
+  padding: 5px 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--btn-color);
+  font-weight: 500;
+  border: 1px solid;
+  border-radius: 6px;
+}

@@ -1,0 +1,31 @@
+.InfoForm {
+  background-color: var(--secondary-color);
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 10px;
+
+  margin: 20px 0 140px;
+  gap: 20px;
+}
+.InfoForm > div {
+  width: 100%;
+}
+.InfoForm label {
+  width: 40%;
+}
+.InfoForm input {
+  width: 60%;
+  height: 40px;
+  padding: 0 4px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid gray;
+  font-weight: 400;
+}
+.InfoForm input:focus {
+  outline: auto;
+  outline-color: var(--btn-color);
+}
+.InfoForm label {
+  font-size: 0.8rem;
+}

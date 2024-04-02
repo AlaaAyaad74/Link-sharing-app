@@ -1,0 +1,6 @@
+.socialLinks {
+  color: var(--primary-color);
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+}

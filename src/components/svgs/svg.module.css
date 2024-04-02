@@ -1,0 +1,13 @@
+.svgContainer {
+  width: 24px;
+  height: 24px;
+  padding: 4px 2px;
+  display: flex;
+  align-items: center;
+}
+.svgSocial {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  fill: var(--primary-color);
+}

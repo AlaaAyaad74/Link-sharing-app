@@ -1,0 +1,44 @@
+.containerCard {
+  background-color: var(--secondary-color);
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+h3 {
+  font-size: 1.1rem;
+  color: gray;
+}
+.title p {
+  margin: 0;
+}
+.title {
+  justify-content: space-between;
+}
+
+.containerCard div {
+  width: 100%;
+  margin: 8px 0;
+}
+.containerCard label {
+  font-size: 0.8rem;
+  width: 100%;
+}
+.containerCard input,
+.containerCard select {
+  width: 100%;
+  height: 40px;
+  padding: 0 4px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid gray;
+  font-weight: 400;
+}
+.containerCard input:focus,
+.containerCard select:focus {
+  outline: auto;
+  outline-color: var(--btn-color);
+}
+.containerCard select option {
+  font-weight: 500;
+}

@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext } from "react";
+import Header from "./components/Header/Header";
+import HomePage from "./components/HomePage";
+import Profile from "./pages/Profile";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  BrowserRouter,
+} from "react-router-dom";
+export const sharedData = createContext();
+const data = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  links: [],
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <sharedData.Provider value={data}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </Router>
+    </sharedData.Provider>
   );
 }
 
