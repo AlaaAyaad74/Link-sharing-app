@@ -4,16 +4,24 @@ import { useContext } from "react";
 import { sharedData } from "../../App";
 function InfoForm() {
   const dataRecived = useContext(sharedData);
-  console.log(dataRecived.changeDate);
+  const changeData = dataRecived.changeData;
+  const state = dataRecived.state.new;
+  function validateName(name) {
+    if (name.length <= 10) {
+      return name[0].toUpperCase() + name.slice(1);
+    } else {
+      alert("The most Length of first Name must less than 10 char");
+    }
+  }
   return (
     <div className={styles.InfoForm + " " + "Flex"}>
       <div className="Flex">
-        <label>User Name</label>
+        <label>First Name</label>
         <input
           type="text"
-          //   value=}
+          //  value={""}
           onChange={(e) =>
-            dataRecived.changeDate(dataRecived.firstName, e.target.value)
+            changeData("firstName", validateName(e.target.value))
           }
         />
       </div>
@@ -21,18 +29,17 @@ function InfoForm() {
         <label>Last Name</label>
         <input
           type="text"
-          onChange={(e) =>
-            dataRecived.changeDate(dataRecived.lastName, e.target.value)
-          }
+          onChange={(e) => changeData("lastName", validateName(e.target.value))}
         />
       </div>
       <div className="Flex">
         <label>Email</label>
         <input
           type="email"
-          onChange={(e) =>
-            dataRecived.changeDate(dataRecived.email, e.target.value)
-          }
+          pattern=".+@example\.com"
+          size="30"
+          required
+          onChange={(e) => changeData("email", e.target.value)}
         />
       </div>
     </div>

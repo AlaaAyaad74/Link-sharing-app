@@ -1,0 +1,21 @@
+.container_Head_View {
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 80px !important;
+  background-color: var(--primary-color);
+  position: absolute;
+  z-index: 99;
+  width: 96%;
+  top: 120px;
+  border-radius: 10px;
+}
+.container_Head_View a {
+  border: 1px solid var(--btn-color);
+}
+.container_Head_View #left {
+  color: var(--btn-color);
+}
+.container_Head_View #right {
+  color: var(--primary-color);
+  background-color: var(--btn-color);
+}

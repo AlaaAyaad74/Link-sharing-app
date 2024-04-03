@@ -1,8 +1,6 @@
 .mob__Cont {
   background-color: var(--primary-color);
   border-radius: 10px;
-  padding: 15% 0;
-  position: relative;
 }
 .mob__Cont .cont {
   width: 330px;
@@ -12,16 +10,23 @@
   gap: 30px;
   padding: 15px;
   border: 2px solid #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   justify-content: space-evenly;
+  background-color: var(--primary-color);
+  border-radius: 12px;
 }
 .ava__text,
 .socisl_links_cont {
   flex-direction: column;
 }
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
+  border: 5px solid var(--btn-color);
 }
 .social__Links {
   position: absolute;
@@ -36,4 +41,7 @@
   overflow: hidden;
   gap: 15px;
   max-height: 315px;
+}
+.blueBorder {
+  border: 5px solid var(--btn-color);
 }

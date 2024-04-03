@@ -12,7 +12,7 @@ function Header() {
     borderRadius: "4px",
     marginInlineEnd: "6px",
   };
-  const grayLinkIcon = {};
+
   return (
     <div>
       <div className={styles.container + " " + "Flex"}>
@@ -23,17 +23,17 @@ function Header() {
         <div className={styles.links + " " + "Flex"}>
           <Link className="Flex" to={"/"}>
             <LinkSvg fill={"gray"} width={"25px"} height={"25px"} />
-            <span>Links</span>
+            <span className={styles.headText}>Links</span>
           </Link>
           <Link className="Flex" to={"/profile"}>
             <ProfileSvg />
-            <span>Profile Details</span>
+            <span className={styles.headText}>Profile Details</span>
           </Link>
         </div>
         <div className="Flex">
           <Link to={"/preview"} className={styles.preview}>
             <EyeSvg />
-            <span>Preview</span>
+            <span className={styles.headText}>Preview</span>
           </Link>
         </div>
       </div>

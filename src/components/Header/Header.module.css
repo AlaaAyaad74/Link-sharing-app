@@ -39,7 +39,7 @@ a span {
 }
 @media (max-width: 620px) {
   h1,
-  a span {
+  .headText {
     display: none;
   }
   .preview svg {

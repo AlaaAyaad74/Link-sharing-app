@@ -7,9 +7,11 @@
   padding: 45px;
   height: 800px;
 }
-/* .contCards {
-  border-bottom: 2px solid var(--secondary-color);
-} */
+.contCards {
+  height: 500px;
+  overflow-y: scroll;
+  margin: 10px 0;
+}
 .save__btn {
   color: var(--primary-color);
   background-color: var(--btn-color);

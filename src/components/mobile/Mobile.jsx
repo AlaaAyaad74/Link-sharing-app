@@ -1,55 +1,37 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styles from "./Mobilestyle.module.css";
-import { Link } from "react-router-dom";
+
 import Buttonlink from "./buttonLink/Buttonlink";
 import LinkedinSvg from "../svgs/LinkedinSvg";
 import Github from "../svgs/Github";
 import YoutubeSvg from "../svgs/YoutubeSvg";
+import userImage from "./../../assets/user.png";
 import { sharedData } from "../../App";
+
 function Mobile() {
-  const SocialLinks = [
-    {
-      name: "Linkedin",
-      icon: <LinkedinSvg />,
-      backgroundColor: "#0a66c2",
-    },
-    {
-      name: "Github",
-      icon: <Github />,
-      backgroundColor: "#000000",
-    },
-    {
-      name: "Youtube",
-      icon: <YoutubeSvg />,
-      backgroundColor: "red",
-    },
-    {
-      name: "",
-      icon: "",
-      backgroundColor: "",
-    },
-    {
-      name: "",
-      icon: "",
-      backgroundColor: "",
-    },
-  ];
   const dataRecived = useContext(sharedData);
-  console.log(sharedData);
+
+  const state = dataRecived.state.new;
+  console.log(state.profileImage);
   return (
     <div className={styles.mob__Cont}>
       <div className={styles.cont + " " + "Flex"}>
         <div className={styles.ava__text + " " + "Flex"}>
-          <img src="/01.png" alt="" className={styles.avatar} />
-          <h2>{dataRecived.state}</h2>
-          <p>FrontEnd developer</p>
+          <img
+            src={state.profileImage ? state.profileImage : userImage}
+            alt=""
+            className={styles.avatar}
+          />
+          <h2>{state.firstName + " " + state.lastName}</h2>
+          <p>{state.email}</p>
         </div>
         <div className={styles.socisl_links_cont + " " + "Flex"}>
-          {SocialLinks.map((item, index) => (
+          {dataRecived.state.new.links.map((item, index) => (
             <Buttonlink
-              background={item.backgroundColor}
+              background={item?.backgroundColor}
               name={item.name}
-              icon={item.icon}
+              icon={item?.icon}
+              path={item.path}
               key={index}
             />
           ))}
