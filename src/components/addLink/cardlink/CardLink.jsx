@@ -6,7 +6,7 @@ import LinkedinSvg from "../../svgs/LinkedinSvg";
 import YoutubeSvg from "../../svgs/YoutubeSvg";
 import GithubSvg from "../../svgs/Github";
 import angleImage from "../../../assets/down-arrow.svg";
-
+import linkIcon from "../../../assets/link-solid.svg";
 const links = [
   {
     name: "Linkedin",
@@ -77,15 +77,18 @@ function CardLink({ index, link }) {
           ))}
         </div>
       </div>
-      <div className="Flex_H">
+      <div className="Flex_H" style={{ position: "relative" }}>
         <label htmlFor="Link">Link</label>
         <input
+          style={{ fontSize: ".85rem" }}
           type="url"
           defaultValue={link.value}
+          className={styles.selection}
           onChange={(e) => {
             editLink(index, { value: e.target.value });
           }}
         />
+        <img src={`${linkIcon}`} id={styles.link_Icon} alt="linkIcon" />
       </div>
     </div>
   );

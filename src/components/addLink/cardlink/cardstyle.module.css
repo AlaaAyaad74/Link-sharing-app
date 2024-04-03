@@ -90,3 +90,8 @@ h3 {
 #remove {
   cursor: pointer;
 }
+#link_Icon {
+  position: absolute;
+  left: 5px;
+  top: 33px;
+}
