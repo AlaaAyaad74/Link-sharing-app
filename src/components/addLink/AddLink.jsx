@@ -7,20 +7,15 @@ import { sharedData } from "../../App";
 function AddLink({ title, description }) {
   const path = window.location.pathname;
   const dataRecived = useContext(sharedData);
-
+  console.log(dataRecived.state.old);
   return (
     <div className={styles.container}>
       <Addlinkhead title={title} description={description} />
       {path === "/" && (
         <div className={styles.contCards}>
           <>
-            {dataRecived.state.new.links.map((item, index) => (
-              <CardLink
-                index={index}
-                value1={item.name}
-                value2={item.path}
-                key={index}
-              />
+            {dataRecived.state.old.links.map((item, index) => (
+              <CardLink index={index} link={item} key={index} />
             ))}
           </>
         </div>

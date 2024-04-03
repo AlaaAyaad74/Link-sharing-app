@@ -1,43 +1,72 @@
 import React, { useContext, useState } from "react";
-import Github from "../../svgs/Github";
 import styles from "./cardstyle.module.css";
 import { Link } from "react-router-dom";
 import { sharedData } from "../../../App";
+import LinkedinSvg from "../../svgs/LinkedinSvg";
+import YoutubeSvg from "../../svgs/YoutubeSvg";
+import GithubSvg from "../../svgs/Github";
+import angleImage from "../../../assets/down-arrow.svg";
 
-function CardLink({ index, value1, value2 }) {
-  console.log(value1, "\n", value2);
-
+const links = [
+  {
+    name: "Linkedin",
+    icon: <LinkedinSvg />,
+    backgroundColor: "#0a66c2",
+    path: "",
+  },
+  {
+    name: "Github",
+    icon: <GithubSvg />,
+    backgroundColor: "#000000",
+    path: "",
+  },
+  {
+    name: "Youtube",
+    icon: <YoutubeSvg />,
+    backgroundColor: "red",
+    path: "",
+  },
+];
+function CardLink({ index, link }) {
+  console.log(link);
   const dataRecived = useContext(sharedData);
-  const links = dataRecived.state.old.links;
-  // console.log(links);
-  const [linkName, setLinkName] = useState(value1);
+  const { editLink, deleteLink } = dataRecived;
+
   const [dropdown, setDropdown] = useState(false);
-  const [urlValue, setUrlValue] = useState(value2);
-  const changeLinks = dataRecived.changeLinks;
   return (
     <div className={styles.containerCard + " " + "Flex_H"}>
       <div className={styles.title + " " + "Flex"}>
         <h3>= Link #{index + 1}</h3>
-        <p>Remove</p>
+        <p onClick={() => deleteLink(index)} id={styles.remove}>
+          Remove
+        </p>
       </div>
       <div className={styles.platform + " " + "Flex_H"}>
         <label htmlFor="platform">Platform</label>
         {/* {Array.from()} */}
         <input
           type="text"
-          defaultValue={linkName.name ? linkName.name : value1}
+          value={link.name || ""}
+          onChange={(e) => {
+            editLink(index, {
+              name: e.target.value,
+              icon: null,
+              backgroundColor: null,
+            });
+          }}
           className={styles.selection}
           onClick={() => setDropdown(!dropdown)}
         />
-        <label className={styles.choosenIcon}>{linkName.icon}</label>
+        {link.icon && <label className={styles.choosenIcon}>{link.icon}</label>}
+        <img src={`${angleImage}`} id={styles.downAngle} alt="down Angle" />
         <div className={`dropdown  ${dropdown ? "active" : ""}`}>
-          {links.map((item, index) => (
-            <div key={index} className={styles.contLink + " " + "Flex"}>
+          {links.map((item, i) => (
+            <div key={i} className={styles.contLink + " " + "Flex"}>
               <Link
                 to={`${item.path}`}
                 className={styles.dropdown__Link}
                 onClick={() => {
-                  setLinkName({ icon: item.icon, name: item.name });
+                  editLink(index, item);
                   setDropdown(false);
                 }}
               >
@@ -47,21 +76,14 @@ function CardLink({ index, value1, value2 }) {
             </div>
           ))}
         </div>
-        {/* <select id="platform">
-          <option value={`fas fa-user github`}>&f09b; Github</option>
-          <option value={"linkedin"}>Linkedin</option>
-          <option value={"youtube"}>Youtube</option>
-        </select> */}
       </div>
       <div className="Flex_H">
         <label htmlFor="Link">Link</label>
         <input
           type="url"
-          defaultValue={urlValue}
+          defaultValue={link.value}
           onChange={(e) => {
-            console.log(e.target.value);
-            setUrlValue(() => e.target.value);
-            changeLinks(linkName.name, e.target.value);
+            editLink(index, { value: e.target.value });
           }}
         />
       </div>

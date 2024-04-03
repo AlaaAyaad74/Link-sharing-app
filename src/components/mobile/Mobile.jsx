@@ -2,9 +2,6 @@ import React, { useContext } from "react";
 import styles from "./Mobilestyle.module.css";
 
 import Buttonlink from "./buttonLink/Buttonlink";
-import LinkedinSvg from "../svgs/LinkedinSvg";
-import Github from "../svgs/Github";
-import YoutubeSvg from "../svgs/YoutubeSvg";
 import userImage from "./../../assets/user.png";
 import { sharedData } from "../../App";
 
@@ -22,8 +19,10 @@ function Mobile() {
             alt=""
             className={styles.avatar}
           />
-          <h2>{state.firstName + " " + state.lastName}</h2>
-          <p>{state.email}</p>
+          <h2 style={{ margin: "20px 0 0 0" }}>
+            {state.firstName + " " + state.lastName}
+          </h2>
+          <p style={{ margin: "20px 0 0 0" }}>{state.email}</p>
         </div>
         <div className={styles.socisl_links_cont + " " + "Flex"}>
           {dataRecived.state.new.links.map((item, index) => (
@@ -31,7 +30,7 @@ function Mobile() {
               background={item?.backgroundColor}
               name={item.name}
               icon={item?.icon}
-              path={item.path}
+              path={item.value}
               key={index}
             />
           ))}

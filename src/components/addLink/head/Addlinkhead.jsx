@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+
 import styles from "./head.module.css";
 import { sharedData } from "../../../App";
 function Addlinkhead({ title, description }) {
+  const context = useContext(sharedData);
+  const { addLink } = context;
   const path = window.location.pathname;
-
   return (
     <div className={styles.container + " " + "Flex"}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <input
-        type="file"
-        id="newlink"
-        multiple={true}
-        onDrop={(e) => console.log(e.target.value)}
-      />
       {path === "/" && (
-        <label htmlFor="newlink" className={styles.addLink}>
+        <label className={styles.addLink} onClick={addLink}>
           + Add new link
         </label>
       )}
